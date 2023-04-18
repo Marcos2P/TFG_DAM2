@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1070134398242",
+    "project_id": "tfg-dam2-f6472",
+    "storage_bucket": "tfg-dam2-f6472.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070134398242:android:2be57c7c0114715066e97b",
+        "android_client_info": {
+          "package_name": "com.example.tfg_dam2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070134398242-bup7tbpr40iems9tthjge1b7qjb0hmaa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt1QCYInmbWQFQ15CoUq_9JkwD7YbNbAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070134398242-bup7tbpr40iems9tthjge1b7qjb0hmaa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
