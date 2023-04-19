@@ -2,63 +2,62 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
     tools:context=".LoginActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="367dp"
-        android:layout_height="596dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
+        android:layout_width="374dp"
+        android:layout_height="607dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="231dp"
-            android:layout_height="230dp"
+            android:id="@+id/imageView2"
+            android:layout_width="223dp"
+            android:layout_height="256dp"
             android:layout_margin="10dp"
-            android:src="@drawable/logo" />
+            app:srcCompat="@drawable/logo" />
 
         <EditText
-            android:id="@+id/emailLogin"
+            android:id="@+id/addresLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="Correo Electronico"
-            android:inputType="textEmailAddress"
-            android:minHeight="48dp" />
+            android:hint="Correo electronico"
+            android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/passwordLogin"
+            android:id="@+id/logPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
             android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:minHeight="48dp" />
+            android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/loguearse"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@null"
             android:backgroundTint="@color/colorBtn"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
-            android:text="Iniciar Sesion"
-            android:textSize="18sp"
-            app:cornerRadius="10dp" />
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="INICIAR SESIÓN" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,14 +73,12 @@
                 android:text="¿No tienes cuenta aun? " />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="start"
                 android:text="@string/crearCuenta"
                 android:textColor="#2196F3" />
         </LinearLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

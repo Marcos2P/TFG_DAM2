@@ -1,5 +1,6 @@
 package com.example.tfg_dam2
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -11,48 +12,29 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 
 class RegisterActivity : AppCompatActivity() {
-    // Referenciar Firestore
-    private val db = FirebaseFirestore.getInstance()
-    private val users = db.collection("users")
 
+    val fire : Firestore = Firestore()
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         // Constantes de programa
-        val email = findViewById<EditText>(R.id.emailLogin)
+        val email = findViewById<EditText>(R.id.emailRegister)
         val nombre = findViewById<EditText>(R.id.nameRegister)
-        val password = findViewById<EditText>(R.id.passwordLogin)
+        val password = findViewById<EditText>(R.id.passwordRegister)
         val password2 = findViewById<EditText>(R.id.password2Register)
-        val btnRegister = findViewById<Button>(R.id.btnLogin)
-        val btnLogin = findViewById<Button>(R.id.btnGoToLogin)
+        val btnRegister = findViewById<Button>(R.id.btnRegister)
+        val btngoLogin = findViewById<Button>(R.id.btnGoToLogin)
 
 
         btnRegister.setOnClickListener {
             if (email.text.toString().isNotEmpty() && nombre.text.toString().isNotEmpty() && password.text.toString().isNotEmpty() && password2.text.toString().isNotEmpty()){
                 if (comprobarEmail(email) && comprobarPassword(password) && comprobarPasswordIguales(password, password2)){
-                    val documento = users.document(email.text.toString())
-                    documento.get().addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            val documentComprueba = task.result
-                            if (documentComprueba != null && documentComprueba.exists()) {
-                                showError("Este correo ya esta en uso")
-                            } else {
-                                var hM = hashMapOf<String, String>(
-                                    "email" to email.text.toString(),
-                                    "nombre" to nombre.text.toString(),
-                                    "password" to password.text.toString())
-
-                                users.document(email.text.toString()).set(hM)
-                                val cambio = Intent(this, LoginActivity::class.java)
-                                cambio.putExtra("datos", hM)
-                                startActivity(cambio)
-                            }
-                        } else {
-                            showError("Error, por favor contacte con nosotros")
-                        }
-                    }
+                    fire.agregarUsuario(email.text.toString(), nombre.text.toString(), password.text.toString())
+                    val cambio = Intent(this, LoginActivity::class.java)
+                    startActivity(cambio)
                 }
             }else{
                 showError("Rellene todos los campos")
@@ -60,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-        btnLogin.setOnClickListener {
+        btngoLogin.setOnClickListener {
             val cambio = Intent(this, LoginActivity::class.java)
             startActivity(cambio)
         }
