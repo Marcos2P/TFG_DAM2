@@ -6,9 +6,7 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -23,12 +21,12 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // Constantes de programa
-        var email = findViewById<EditText>(R.id.emailRegister)
-        var nombre = findViewById<EditText>(R.id.nameRegister)
-        var password = findViewById<EditText>(R.id.passwordRegister)
-        var password2 = findViewById<EditText>(R.id.password2Register)
-        var btnRegister = findViewById<Button>(R.id.btnRegister)
-        var btnLogin = findViewById<Button>(R.id.btnGoToLogin)
+        val email = findViewById<EditText>(R.id.emailLogin)
+        val nombre = findViewById<EditText>(R.id.nameRegister)
+        val password = findViewById<EditText>(R.id.passwordLogin)
+        val password2 = findViewById<EditText>(R.id.password2Register)
+        val btnRegister = findViewById<Button>(R.id.btnLogin)
+        val btnLogin = findViewById<Button>(R.id.btnGoToLogin)
 
 
         btnRegister.setOnClickListener {
@@ -41,7 +39,8 @@ class RegisterActivity : AppCompatActivity() {
                             if (documentComprueba != null && documentComprueba.exists()) {
                                 showError("Este correo ya esta en uso")
                             } else {
-                                var hM = hashMapOf<String, String>("email" to email.text.toString(),
+                                var hM = hashMapOf<String, String>(
+                                    "email" to email.text.toString(),
                                     "nombre" to nombre.text.toString(),
                                     "password" to password.text.toString())
 
@@ -61,11 +60,10 @@ class RegisterActivity : AppCompatActivity() {
         }
 
 
-        //Comprobar que funcionan las funciones, SERA BORRADO
-        /*if (comprobarEmail(email))
-            Toast.makeText(this, "Siiii", Toast.LENGTH_LONG).show()
-        else
-            Toast.makeText(this, "NOOOOOOO", Toast.LENGTH_LONG).show()*/
+        btnLogin.setOnClickListener {
+            val cambio = Intent(this, LoginActivity::class.java)
+            startActivity(cambio)
+        }
     }
     fun comprobarEmail(email : EditText): Boolean{
         return if(Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
@@ -90,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
         return if(p1.text.toString()==p2.text.toString()){
             true
         }else{
-            showError("Las Contraseñas no coinciden")
+            showError("Las contraseñas no coinciden")
             false
         }
     }

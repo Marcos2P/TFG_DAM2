@@ -50,7 +50,7 @@
             android:src="@drawable/logo" />
 
         <EditText
-            android:id="@+id/emailRegister"
+            android:id="@+id/emailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -70,7 +70,7 @@
             android:minHeight="48dp" />
 
         <EditText
-            android:id="@+id/passwordRegister"
+            android:id="@+id/passwordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -89,7 +89,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_margin="10dp"
