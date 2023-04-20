@@ -34,24 +34,4 @@ class Firestore {
         }
     }
 
-
-    fun comprobarUsuario(email : String){
-        val documento = users.document(email)
-        documento.get().addOnCompleteListener{task ->
-            if (task.isSuccessful){
-                val documentComprueba = task.result
-                if (documentComprueba != null && documentComprueba.exists()) {
-
-                }else{
-                    var hM = hashMapOf<String, String>(
-                        "email" to email,
-                        )
-
-                    users.document(email).set(hM)
-                }
-            }else{
-                //No es sucesful
-            }
-        }
-    }
 }

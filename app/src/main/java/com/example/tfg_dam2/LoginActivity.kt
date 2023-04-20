@@ -7,11 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class LoginActivity : AppCompatActivity() {
     // Referenciar Firestore
    val fire : Firestore = Firestore()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +26,12 @@ class LoginActivity : AppCompatActivity() {
 
 
         loguearse.setOnClickListener {
-            if (emailLog.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()){
-                fire.comprobarUsuario(emailLog.text.toString())
-            }else{
-                showError2("Rellene los campos para continuar")
+            db.collection("users").document(emailLog.text.toString()).get().addOnSuccessListener { document ->
+                if (document.exists())
+                    //Comprobar contraseña
+                else
+                    Toast.makeText(this, "No existe", Toast.LENGTH_SHORT).show()
+
             }
         }
     }
