@@ -1,10 +1,14 @@
 package com.example.tfg_dam2
 
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
@@ -12,9 +16,11 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class LoginActivity : AppCompatActivity() {
     // Referenciar Firestore
-   val fire : Firestore = Firestore()
-    private val db = FirebaseFirestore.getInstance()
+    val fire : Firestore = Firestore()
+    var context: Context = this
 
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -23,17 +29,18 @@ class LoginActivity : AppCompatActivity() {
         val loguearse = findViewById<Button>(R.id.loguearse)
         val emailLog = findViewById<EditText>(R.id.addresLogin)
         val password = findViewById<EditText>(R.id.logPass)
-
+        val linkRegister = findViewById<TextView>(R.id.linkRegister)
 
         loguearse.setOnClickListener {
-            db.collection("users").document(emailLog.text.toString()).get().addOnSuccessListener { document ->
-                if (document.exists())
-                    //Comprobar contraseña
-                else
-                    Toast.makeText(this, "No existe", Toast.LENGTH_SHORT).show()
-
-            }
+            fire.loguerarUsuario(emailLog.text.toString(), password.text.toString(), context)
         }
+
+        linkRegister.setOnClickListener {
+            var cambio = Intent(this, RegisterActivity::class.java)
+            startActivity(cambio)
+        }
+
+
     }
 
     fun showError2(cadena : String){

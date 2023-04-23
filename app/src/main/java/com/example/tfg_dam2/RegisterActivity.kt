@@ -1,6 +1,7 @@
 package com.example.tfg_dam2
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -14,7 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class RegisterActivity : AppCompatActivity() {
 
     val fire : Firestore = Firestore()
-
+    var context: Context = this
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         btnRegister.setOnClickListener {
             if (email.text.toString().isNotEmpty() && nombre.text.toString().isNotEmpty() && password.text.toString().isNotEmpty() && password2.text.toString().isNotEmpty()){
                 if (comprobarEmail(email) && comprobarPassword(password) && comprobarPasswordIguales(password, password2)){
-                    fire.agregarUsuario(email.text.toString(), nombre.text.toString(), password.text.toString())
-                    val cambio = Intent(this, LoginActivity::class.java)
-                    startActivity(cambio)
+                    fire.agregarUsuario(email.text.toString(), nombre.text.toString(), password.text.toString(), context)
                 }
             }else{
                 showError("Rellene todos los campos")
