@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:foregroundGravity="center"
-    tools:context=".RegisterPetActivity">
+    tools:context=".registro_login.RegisterPetActivity">
 
     <LinearLayout
         android:layout_width="346dp"
@@ -20,14 +20,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/fotoMascota"
             android:layout_width="match_parent"
             android:layout_height="258dp"
             android:layout_margin="10dp"
             app:srcCompat="@drawable/add_poto" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/petName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -35,31 +35,58 @@
             android:hint="Nombre de la mascota"
             android:inputType="text" />
 
-        <EditText
-            android:id="@+id/editTextText2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:ems="10"
-            android:hint="Raza"
-            android:inputType="text" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Selecciona raza "
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/petRaza"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:contextClickable="false"
+                android:ems="10"
+                android:inputType="text" />
+        </LinearLayout>
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/petPeso"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
             android:hint="Peso"
-            android:inputType="text" />
+            android:inputType="numberDecimal" />
+
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/petEdad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:clickable="true"
             android:ems="10"
+            android:focusable="false"
             android:hint="Edad"
-            android:inputType="text" />
+            android:inputType="date" />
+
+
+        <Button
+            android:id="@+id/petContinuar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/colorBtn"
+            android:text="Continuar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
-package com.example.tfg_dam2
+package com.example.tfg_dam2.clases_alternativas
 
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
+import com.example.tfg_dam2.registro_login.RegisterActivity
+import com.example.tfg_dam2.registro_login.RegisterPetActivity
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Firestore {

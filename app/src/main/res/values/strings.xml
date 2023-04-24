@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">TFG-DAM2</string>
     <string name="crearCuenta"><u>CREAR CUENTA AQUÍ</u></string>
+
+    <string-array name="razas">
+        <item></item>
+        <item>Pastor Aleman</item>
+        <item>BullDog</item>
+        <item>Chihuahua</item>
+        <item>Husky</item>
+    </string-array>
 </resources>

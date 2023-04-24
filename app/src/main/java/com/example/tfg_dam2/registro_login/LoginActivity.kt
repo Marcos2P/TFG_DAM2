@@ -1,4 +1,4 @@
-package com.example.tfg_dam2
+package com.example.tfg_dam2.registro_login
 
 
 import android.annotation.SuppressLint
@@ -9,9 +9,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
+import com.example.tfg_dam2.clases_alternativas.Firestore
+import com.example.tfg_dam2.R
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.firestore.FirebaseFirestore
 
 
 class LoginActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.tfg_dam2
+package com.example.tfg_dam2.registro_login
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,8 +8,9 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tfg_dam2.clases_alternativas.Firestore
+import com.example.tfg_dam2.R
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.firestore.FirebaseFirestore
 
 
 class RegisterActivity : AppCompatActivity() {
