@@ -13,6 +13,12 @@
         android:theme="@style/Theme.TFGDAM2"
         tools:targetApi="31">
         <activity
+            android:name=".clases_alternativas.FragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".clases_alternativas.Fragment"
+            android:exported="false" />
+        <activity
             android:name=".actividades_principales.PrincipalActivity"
             android:exported="false" />
         <activity
@@ -29,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".registro_login.RegisterActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
