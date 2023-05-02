@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RegisterPet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -28,7 +29,7 @@
 
         <EditText
             android:id="@+id/petName"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
@@ -36,7 +37,7 @@
             android:inputType="text" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -61,29 +62,28 @@
 
         <EditText
             android:id="@+id/petPeso"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="Peso"
+            android:hint="Peso en kilogramos"
             android:inputType="numberDecimal" />
 
 
         <EditText
             android:id="@+id/petEdad"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:clickable="true"
             android:ems="10"
-            android:focusable="false"
-            android:hint="Edad"
+            android:hint="Edad en años"
             android:inputType="date" />
 
 
         <Button
             android:id="@+id/petContinuar"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="@color/colorBtn"

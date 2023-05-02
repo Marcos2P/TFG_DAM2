@@ -2,12 +2,16 @@ package com.example.tfg_dam2.registro_login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
+import androidx.core.view.get
 import com.example.tfg_dam2.R
+import com.google.android.material.snackbar.Snackbar
 
 class RegisterPetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +40,23 @@ class RegisterPetActivity : AppCompatActivity() {
             petRaza.adapter = adapter
         }
 
+        petContinuar.setOnClickListener {
+            if (petName.text.toString().isNotEmpty() && petPeso.text.toString().isNotEmpty() && petEdad.text.toString().isNotEmpty() && petRaza.selectedItem.toString().isNotEmpty()){
+                showErrorPet("si")
+            }else{
+                showErrorPet("Rellene todos los campos")
+            }
+        }
 
-        //Seleccionar la fecha de nacimiento
 
     }
 
+
+
+
+
+    fun showErrorPet(cadena : String){
+        var snackbar : Snackbar = Snackbar.make(findViewById(R.id.RegisterPet), cadena, Snackbar.LENGTH_LONG)
+        snackbar.show()
+    }
 }

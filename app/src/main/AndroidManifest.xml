@@ -15,7 +15,8 @@
 
         <activity
             android:name=".actividades_principales.PrincipalActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name=".registro_login.RegisterPetActivity"
             android:exported="true">
