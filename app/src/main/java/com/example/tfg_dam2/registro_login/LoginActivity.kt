@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -32,7 +33,13 @@ class LoginActivity : AppCompatActivity() {
         val linkRegister = findViewById<TextView>(R.id.linkRegister)
 
         loguearse.setOnClickListener {
-            fire.loguerarUsuario(emailLog.text.toString(), password.text.toString(), context)
+            if (emailLog.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()){
+                if (comprobarEmail(emailLog) && comprobarPassword(password)){
+                    fire.loguerarUsuario(emailLog.text.toString(), password.text.toString(), context)
+                }
+            }else{
+                showError("Rellene todos los campos")
+            }
         }
 
         linkRegister.setOnClickListener {
@@ -43,8 +50,27 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    fun showError2(cadena : String){
+    fun showError(cadena : String){
         var snackbar : Snackbar = Snackbar.make(findViewById(R.id.Login), cadena, Snackbar.LENGTH_LONG)
         snackbar.show()
+    }
+
+    fun comprobarEmail(email : EditText): Boolean{
+        return if(Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
+            true
+        }else{
+            showError("Email incorrecto")
+            false
+        }
+    }
+
+
+    fun comprobarPassword(password : EditText):Boolean{
+        return if(password.text.toString().length>=6){
+            true
+        }else{
+            showError("La contraseña debe tener al menos 6 caracteres")
+            false
+        }
     }
 }
