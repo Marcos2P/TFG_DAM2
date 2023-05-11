@@ -81,6 +81,7 @@ class PrincipalActivity : AppCompatActivity() {
                 val foto_mascota = documentSnapshot.getString("foto_Mascota")
                 firebaseViewModel.firebaseData = FirebaseData(email, nombreMascota, foto_mascota)
 
+
             } else {
                 // el correo electrónico no fue encontrado
             }

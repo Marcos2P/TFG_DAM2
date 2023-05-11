@@ -6,7 +6,10 @@ import android.net.Uri
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
+import androidx.lifecycle.ViewModelProvider
+import com.example.tfg_dam2.actividades_principales.FirebaseViewModel
 import com.example.tfg_dam2.actividades_principales.PrincipalActivity
+import com.example.tfg_dam2.registro_login.LoginActivity
 import com.example.tfg_dam2.registro_login.RegisterActivity
 import com.example.tfg_dam2.registro_login.RegisterPetActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,13 +19,14 @@ class Firestore {
     // Variables
     private val db = FirebaseFirestore.getInstance()
     private val users = db.collection("users")
+    var firebaseData: FirebaseData? = null
 
     //Constructores
     constructor()
 
     //Funciones
 
-    fun agregarUsuario(email : String, nombre : String, password : String, context: Context){
+    fun agregarUsuario(email : String, nombre : String, password : String, context: Context, ){
         val documento = users.document(email)
         documento.get().addOnCompleteListener{task ->
             if (task.isSuccessful){
@@ -40,19 +44,24 @@ class Firestore {
                     startActivity(context, cambio, null)
                 }
             }else{
-                //No es sucesful
+                Toast.makeText(context, "No successful", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
 
-    fun loguerarUsuario(email: String, password: String, context: Context){
+    fun loguerarUsuario(email: String, password: String, context: Context, firebaseViewModel: FirebaseViewModel){
         val documento = users.document(email)
         documento.get().addOnCompleteListener{task ->
             if (task.isSuccessful){
                 val documentComprueba = task.result
                 if (documentComprueba != null && documentComprueba.exists()) {
                     if(password == documentComprueba.data?.get("password").toString()){
+                        //Meter a FirebaseData
+                        val nombreMascota = documentComprueba.getString("nombre_mascota")
+                        val foto_mascota = documentComprueba.getString("foto_Mascota")
+                        firebaseViewModel.firebaseData = FirebaseData(email, nombreMascota, foto_mascota)
+                        //Cambiar de actividad
                         val cambio = Intent(context, PrincipalActivity::class.java)
                         cambio.putExtra("email", email)
                         startActivity(context, cambio, null)
@@ -81,7 +90,7 @@ class Firestore {
                         "raza_mascota" to raza,
                         "foto_Mascota" to urlMascota.toString())
                     users.document(email).update(hM as Map<String, Any>)
-                    val cambio = Intent(context, PrincipalActivity::class.java)
+                    val cambio = Intent(context, LoginActivity::class.java)
                     cambio.putExtra("email", email)
                     startActivity(context, cambio, null)
                 }else{

@@ -67,15 +67,17 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     app:cardBackgroundColor="@color/colorCards"
                     app:cardCornerRadius="10dp">
+
                     <ImageView
                         android:layout_width="200dp"
                         android:layout_height="200dp"
-                        android:background="@drawable/foodpettrans"
-                        android:alpha="0.3"/>
+                        android:alpha="0.3"
+                        android:background="@drawable/foodpettrans" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -87,20 +89,26 @@
                         android:padding="10dp">
 
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Alimentación"
+                            android:textSize="40sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alimentación" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_margin="5dp"
+                            android:gravity="center"
+                            android:text="Aqui encontraras toda la comida relacionada con tu mascota" />
 
                         <Button
                             android:id="@+id/btnPetComida"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
                             android:text="Ir al apartado de comida" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>

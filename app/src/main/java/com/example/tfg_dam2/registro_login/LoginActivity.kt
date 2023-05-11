@@ -10,8 +10,11 @@ import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import com.example.tfg_dam2.clases_alternativas.Firestore
 import com.example.tfg_dam2.R
+import com.example.tfg_dam2.actividades_principales.FirebaseViewModel
+import com.example.tfg_dam2.clases_alternativas.FirebaseData
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -19,8 +22,7 @@ class LoginActivity : AppCompatActivity() {
     // Referenciar Firestore
     val fire : Firestore = Firestore()
     var context: Context = this
-
-
+    private lateinit var firebaseViewModel: FirebaseViewModel
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +34,13 @@ class LoginActivity : AppCompatActivity() {
         val password = findViewById<EditText>(R.id.logPass)
         val linkRegister = findViewById<TextView>(R.id.linkRegister)
 
+
         loguearse.setOnClickListener {
             if (emailLog.text.toString().isNotEmpty() && password.text.toString().isNotEmpty()){
                 if (comprobarEmail(emailLog) && comprobarPassword(password)){
-                    fire.loguerarUsuario(emailLog.text.toString(), password.text.toString(), context)
+                    firebaseViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
+                    fire.loguerarUsuario(emailLog.text.toString(), password.text.toString(), context, firebaseViewModel)
+
                 }
             }else{
                 showError("Rellene todos los campos")
