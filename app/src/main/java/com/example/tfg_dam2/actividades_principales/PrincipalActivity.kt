@@ -68,6 +68,8 @@ class PrincipalActivity : AppCompatActivity() {
         navegation.setOnNavigationItemSelectedListener(mOnNavMenu)
         val email = intent.getStringExtra("email")
         val mainFragment = MainFragment()
+        val newsFragment = NewsFragment()
+
         val args = Bundle()
         args.putString("email", email)
         mainFragment.arguments = args
@@ -89,7 +91,7 @@ class PrincipalActivity : AppCompatActivity() {
 
         //Colocar Fragments
         supportFragmentManager.commit {
-            replace(R.id.frameContainer, mainFragment)
+            replace(R.id.frameContainer, newsFragment)
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }

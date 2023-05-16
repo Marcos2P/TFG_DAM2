@@ -5,6 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.Transformation
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tfg_dam2.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -21,6 +29,8 @@ class NewsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var isExpanded = false
+    private var isExpanded2 = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +38,7 @@ class NewsFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -35,7 +46,43 @@ class NewsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_news, container, false)
+
+        //Primera Seccion
+        val headerLayout = view.findViewById<LinearLayout>(R.id.headerLayout)
+        val arrowImageView = view.findViewById<ImageView>(R.id.arrowImageView)
+        val contentLayout = view.findViewById<LinearLayout>(R.id.contentLayout)
+        headerLayout.setOnClickListener {
+            isExpanded = !isExpanded
+            if (isExpanded) {
+                arrowImageView.setImageResource(R.drawable.baseline_expand_less_24)
+                contentLayout.visibility = View.VISIBLE
+            } else {
+                arrowImageView.setImageResource(R.drawable.baseline_expand_more_24)
+                contentLayout.visibility = View.GONE
+            }
+        }
+
+
+        //Segunda Seccion
+        val headerLayout2 = view.findViewById<LinearLayout>(R.id.headerLayout2)
+        val arrowImageView2 = view.findViewById<ImageView>(R.id.arrowImageView2)
+        val contentLayout2 = view.findViewById<LinearLayout>(R.id.contentLayout2)
+        headerLayout2.setOnClickListener {
+            isExpanded2 = !isExpanded2
+            if (isExpanded2) {
+                arrowImageView2.setImageResource(R.drawable.baseline_expand_less_24)
+                contentLayout2.visibility = View.VISIBLE
+            } else {
+                arrowImageView2.setImageResource(R.drawable.baseline_expand_more_24)
+                contentLayout2.visibility = View.GONE
+            }
+        }
+
+
+        return view
+
     }
 
     companion object {
@@ -58,3 +105,4 @@ class NewsFragment : Fragment() {
             }
     }
 }
+
