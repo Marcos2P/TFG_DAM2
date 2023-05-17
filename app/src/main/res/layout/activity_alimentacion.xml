@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".actividades_caninas.alimentacion">
+    tools:context=".actividades_caninas.Alimentacion">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         app:cardBackgroundColor="@color/colorFood"
         app:cardCornerRadius="10dp"
@@ -175,6 +175,20 @@
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
             android:text="Comprar">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btnVolverAlimentacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/colorBtn"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="10dp"
+            android:text="Volver">
 
         </Button>
 

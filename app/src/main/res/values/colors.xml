@@ -9,4 +9,6 @@
     <color name="colorEntrenamiento">#86002E8A</color>
     <color name="colorDeporte">#D3C064</color>
     <color name="colorSalud">#8C3DE864</color>
+    <color name="colorRed">#EF0808</color>
+    <color name="colorVolver">#8C3DE864</color>
 </resources>

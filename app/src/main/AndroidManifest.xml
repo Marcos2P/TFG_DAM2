@@ -20,14 +20,17 @@
         android:theme="@style/Theme.TFGDAM2"
         tools:targetApi="31">
         <activity
-            android:name=".actividades_caninas.alimentacion"
+            android:name=".actividades_caninas.Entrenamiento"
+            android:exported="false" />
+        <activity
+            android:name=".actividades_caninas.Alimentacion"
             android:exported="false" />
         <activity
             android:name=".actividades_principales.PrincipalActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".registro_login.RegisterPetActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".registro_login.LoginActivity"
             android:exported="true">

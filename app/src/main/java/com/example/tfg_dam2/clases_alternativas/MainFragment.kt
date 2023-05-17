@@ -1,6 +1,7 @@
 package com.example.tfg_dam2.clases_alternativas
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tfg_dam2.R
+import com.example.tfg_dam2.actividades_caninas.Alimentacion
 import com.example.tfg_dam2.actividades_principales.FirebaseViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -67,7 +69,8 @@ class MainFragment : Fragment() {
 
         val btnPetComida = view.findViewById<Button>(R.id.btnPetComida)
         btnPetComida.setOnClickListener(){
-
+            val intent = Intent(activity, Alimentacion::class.java)
+            activity?.startActivity(intent)
         }
 
         return view
