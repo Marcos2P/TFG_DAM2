@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tfg_dam2.R
 import com.example.tfg_dam2.actividades_caninas.Alimentacion
+import com.example.tfg_dam2.actividades_caninas.Entrenamiento
 import com.example.tfg_dam2.actividades_principales.FirebaseViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -72,6 +73,12 @@ class MainFragment : Fragment() {
             val intent = Intent(activity, Alimentacion::class.java)
             activity?.startActivity(intent)
         }
+        val btnPetEntrenamiento = view.findViewById<Button>(R.id.btnPetEntrenamiento)
+        btnPetEntrenamiento.setOnClickListener(){
+            val intent = Intent(activity, Entrenamiento::class.java)
+            activity?.startActivity(intent)
+        }
+
 
         return view
     }
