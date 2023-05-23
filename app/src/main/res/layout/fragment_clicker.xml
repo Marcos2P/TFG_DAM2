@@ -21,70 +21,125 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
-                android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="¿Que es el clicker?"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:text="El clicker es un pequeño pulsador que emite un sonido. Dicho de una manera más mundana, se trata de una pequeña caja con un botón al que al presionarlo emite un &quot;click&quot;. De ahí el nombre. Y es que este reforzador de conducta nos ayuda en dos líneas. Por un lado, sería un sustituto de las golosinas (la comida no deja de ser un refuerzo positivo de la conducta) y por el otro, podemos premiar un comportamiento espontáneo de nuestro perro." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ventajas del entrenamiento con clicker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="El adiestramiento con clicker presenta toda una serie de ventajas que debes tener en cuenta si todavía tienes dudas acerca de su uso. Una de las más notables es que a través de este método el perro aprende para perseguir un propósito, no por hábito. De esta forma, el aprendizaje dura más tiempo porque el can es consciente del comportamiento y la acción que está realizando." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="La carga del clicker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="No nos estamos refiriendo a poner pilas al aparato o algo similar. La carga del clicker no es otra cosa que el proceso o ejercicios que debemos realizar con nuestro perro para que asocie el sonido del click a un premio.  El ejercicio básico de carga es emitir el sonido &quot;click&quot; y justo después, dar una golosina a tu perro. No obstante, no te preocupes, en este otro artículo te explicamos en profundidad todo el proceso de carga del clicker. Es importante que antes de continuar el adiestramiento con clicker verifiques que la carga se ha realizado correctamente y si tu perro está entendiendo cómo funciona el clicker." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ejemplo de adiestramiento con clicker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="1.- Elige una palabra a la que vayas a asignar esa orden. Recuerda que debe ser una palabra que tu perro no escuche normalmente, ya que corres el riesgo de que el entrenamiento no funcione." />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="2.- Ponemos en el hocico del perro algo que le llame la atención. Por ejemplo, un post-it." />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="3.- Cuando veamos que sube la pata para querer quitárselo decimos la palabra elegida, &quot;triste&quot; por ejemplo." />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="4.- Justo después de que la haya hecho haz sonar el clicker." />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="5.- Aunque en principio el perro debería seguir tus instrucciones únicamente con el uso del clicker está bien emplear pequeñas golosinas cuando empecemos con una nueva orden. De esta forma no se le olvidará seguro." />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Uso incorrecto del clicker"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Algunos entrenadores tienen la idea de que el clicker es una especie de cajita mágica que funciona sin necesidad de darle comida o proporcionarle juegos al perro. Estos entrenadores tienen la costumbre de hacer click varias veces sin dar ningún reforzador. Entonces, en sus sesiones de adiestramiento se escucha mucho &quot;click-click-click-click-click&quot;, pero no se ve mucho reforzamiento." />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Al hacer esto, los entrenadores anulan el valor que tiene el clicker, ya que no les sirve para reforzar las conductas del perro. Además, se perjudican al manejar una herramienta que no les sirve porque la emplean mal. En el mejor de los casos, éste es un procedimiento inútil que molesta pero no daña el adiestramiento. En el peor de los casos, el adiestrador se concentra en la herramienta más que en el adiestramiento y no progresa.  " />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:gravity="center"
-                android:padding="15dp"
-                android:text="TextView" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Titulo1" />
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4CAF50"
+                    android:text="! Conseguido ¡" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Texto1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Titulo2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Texto2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Titulo3" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Texto3" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Titulo4" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Texto4" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Titulo5" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Texto5" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

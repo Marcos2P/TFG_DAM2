@@ -1,32 +1,24 @@
 package com.example.tfg_dam2.clases_alternativas
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.Transformation
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
 import com.example.tfg_dam2.R
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [NewsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class NewsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
     private var isExpanded = false
@@ -50,18 +42,26 @@ class NewsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_news, container, false)
 
         //Primera Seccion
+        val firstNovedad = view.findViewById<Button>(R.id.firstNovedad)
         val headerLayout = view.findViewById<LinearLayout>(R.id.headerLayout)
         val arrowImageView = view.findViewById<ImageView>(R.id.arrowImageView)
         val contentLayout = view.findViewById<LinearLayout>(R.id.contentLayout)
         headerLayout.setOnClickListener {
-            isExpanded = !isExpanded
-            if (isExpanded) {
+            if (headerLayout.contentDescription=="Expand") {
                 arrowImageView.setImageResource(R.drawable.baseline_expand_less_24)
                 contentLayout.visibility = View.VISIBLE
+                headerLayout.contentDescription="NotExpand"
             } else {
                 arrowImageView.setImageResource(R.drawable.baseline_expand_more_24)
+                headerLayout.contentDescription="Expand"
                 contentLayout.visibility = View.GONE
             }
+        }
+        firstNovedad.setOnClickListener {
+            val url = "https://www.google.com"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
         }
 
 

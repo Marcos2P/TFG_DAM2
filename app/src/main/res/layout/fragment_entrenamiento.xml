@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="#51793900"
+                app:cardBackgroundColor="#86516488"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="#51793900"
+                app:cardBackgroundColor="#86516488"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
@@ -110,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                app:cardBackgroundColor="#51793900"
+                app:cardBackgroundColor="#86516488"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
@@ -132,7 +132,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:text="Atacar/Defender"
+                        android:text="Dar la pata"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
@@ -141,7 +141,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/colorEntrenamiento"
-                        android:text="Ir a la indormacion de atacar/defender" />
+                        android:text="Ir a la indormacion de dar la pata" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

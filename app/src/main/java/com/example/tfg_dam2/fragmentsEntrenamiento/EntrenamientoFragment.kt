@@ -10,7 +10,7 @@ import android.widget.Button
 import com.example.tfg_dam2.R
 import com.example.tfg_dam2.fragmentsEntrenamiento.first.ClickerFragment
 import com.example.tfg_dam2.fragmentsEntrenamiento.second.ExtincionFragment
-import com.example.tfg_dam2.fragmentsEntrenamiento.third.Attackragment
+import com.example.tfg_dam2.fragmentsEntrenamiento.third.LegFragment
 
 
 class EntrenamientoFragment : Fragment() {
@@ -45,7 +45,7 @@ class EntrenamientoFragment : Fragment() {
             fragTransaction.commit()
         }
         btnInfoAttack.setOnClickListener(){
-            val nuevoFragmento = Attackragment()
+            val nuevoFragmento = LegFragment()
             val fragmentManager = requireFragmentManager()
             val fragTransaction = fragmentManager.beginTransaction()
             fragTransaction.replace(R.id.fragmentContainerEntrenamiento, nuevoFragmento)

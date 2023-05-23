@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmentsEntrenamiento.second.ExtincionFragment">
+    tools:context=".fragmentsEntrenamiento.third.LegFragment">
 
     <ScrollView
         android:layout_width="0dp"
@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Importancia: Enseñar a tu perro a sentarse"
+                android:text="Importancia: Enseñar a tu perro a dar la pata  "
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -33,12 +33,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:padding="10dp"
-                android:text="Enseñar a tu perro a sentarse es un comando básico y fundamental en su entrenamiento. Sentarse es una acción útil y segura que ayuda a controlar su comportamiento y establecer una buena comunicación con él." />
+                android:text="Enseñar a tu perro a dar la pata es un comportamiento divertido y útil que fortalece el vínculo entre tú y tu mascota. Además, es una forma efectiva de mejorar la obediencia y la comunicación con tu perro." />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ventajas de enseñar a tu perro a sentarse"
+                android:text="Ventajas de enseñar a tu perro a dar la pata  "
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -46,27 +46,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Mejor control: Al enseñar a tu perro a sentarse, le proporcionas una forma de controlar su comportamiento y mantenerlo tranquilo en diferentes situaciones." />
+                android:text="- Interacción positiva: Al enseñar a tu perro a dar la pata, fortaleces el vínculo emocional y la confianza entre ambos" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Interacción positiva: El entrenamiento de sentado fomenta una interacción positiva entre tú y tu perro, fortaleciendo el vínculo y la confianza mutua." />
+                android:text="- Socialización: El comportamiento de dar la pata es una excelente forma de enseñar a tu perro a interactuar de manera amigable con otras personas y animales." />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Base para otros comandos: Sentarse es un comando base que sienta las bases para enseñar otros comportamientos y trucos más avanzados a tu perro." />
+                android:text="- Demostración de obediencia: Dar la pata es un comportamiento que muestra la obediencia de tu perro y refuerza su educación general." />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pasos para enseñar a tu perro a sentarse"
+                android:text="Pasos para enseñar a tu perro a dar la pata  "
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -74,42 +74,42 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="1.- Preparación: Encuentra un lugar tranquilo y sin distracciones para el entrenamiento y ten a mano golosinas o premios para motivar a tu perro." />
+                android:text="1.- Preparación: Reúne algunas golosinas o premios para motivar a tu perro y asegúrate de tener un lugar tranquilo y sin distracciones para el entrenamiento.motivar a tu perro." />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="2.- Posición inicial: Colócate frente a tu perro con una golosina en la mano a la altura de su nariz para captar su atención." />
+                android:text="2.- Sentarse: Antes de enseñar a tu perro a dar la pata, asegúrate de que pueda sentarse con facilidad en respuesta a un comando verbal." />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="3.- Comando verbal y señal: Di claramente el comando verbal &quot;Siéntate&quot; mientras levantas la golosina por encima de su cabeza y mueves tu mano hacia atrás." />
+                android:text="3.- Comando verbal: Utiliza un comando verbal como &quot;Dar la pata&quot; o &quot;Pata&quot; mientras levantas ligeramente la pata de tu perro con tu mano." />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="4.- Sentarse y recompensa: Cuando tu perro se siente, elógialo y dale la golosina como recompensa inmediata." />
+                android:text="4.- Tocar la pata: Toca suavemente la pata de tu perro y dale una recompensa inmediata cuando la levante o la mueva hacia ti." />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="5.- Repetición y práctica: Repite los pasos anteriores en varias sesiones de entrenamiento, reduciendo gradualmente la frecuencia de las golosinas y reforzando verbalmente su comportamiento." />
+                android:text="5.- Repetición y refuerzo: Repite los pasos anteriores varias veces, asegurándote de elogiar y recompensar a tu perro cada vez que realice el comportamiento deseado." />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Problemas comunes durante el entrenamiento"
+                android:layout_marginBottom="12dp"
+                android:text="Problemas comunes durante el entrenamiento  "
                 android:textSize="20sp"
-                android:layout_marginBottom="12dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Falta de atención: Tu perro puede distraerse fácilmente durante el entrenamiento. Asegúrate de utilizar un lugar tranquilo y sin distracciones y captar su atención con premios." />
+                android:text="- Falta de interés: Algunos perros pueden mostrar falta de interés inicial. Sé paciente y utiliza recompensas que sean especialmente atractivas para tu perro." />
 
             <TextView
 
@@ -131,14 +131,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Resistencia inicial: Algunos perros pueden mostrar resistencia al principio. Sé persistente y refuerza positivamente cada intento y logro, motivándolo a seguir intentando." />
+                android:text="- Confusión: Si tu perro muestra confusión, simplifica el entrenamiento y refuerza los pasos previos, como sentarse, antes de continuar con el comportamiento de dar la pata." />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Consejos adicionales para el entrenamiento de sentado"
-                android:textSize="20sp"
                 android:layout_marginBottom="12dp"
+                android:text="Consejos adicionales para el entrenamiento de dar la pata  "
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -146,21 +146,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Mantén las sesiones de entrenamiento cortas y divertidas para evitar el aburrimiento de tu perro." />
+                android:text="- Sé consistente con el comando verbal que utilices y mantén el mismo gesto para pedirle a tu perro que te dé la pata." />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Utiliza recompensas y elogios verbales con entusiasmo para reforzar positivamente el comportamiento deseado." />
+                android:text="- Asegúrate de que el entrenamiento se realice en sesiones cortas y divertidas para evitar que tu perro se aburra o se frustre." />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:text="- Sé consistente en tus comandos y señales, utilizando siempre las mismas palabras y gestos para evitar confusiones." />
+                android:text="- Utiliza refuerzo positivo, como golosinas, caricias y elogios verbales, para motivar y premiar a tu perro cuando realice el comportamiento deseado." />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -179,4 +179,5 @@
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
