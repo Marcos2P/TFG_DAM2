@@ -19,75 +19,26 @@ import com.google.firebase.database.collection.LLRBNode.Color
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-class FirebaseViewModel : ViewModel() {
-    var firebaseData: FirebaseData? = null
-}
 class PrincipalActivity : AppCompatActivity() {
 
-    private lateinit var firebaseViewModel: FirebaseViewModel
-
-    lateinit var navegation : BottomNavigationView
-    private val mOnNavMenu = BottomNavigationView.OnNavigationItemSelectedListener{item ->
-        when(item.itemId){
-            R.id.itemMainFragment -> {
-                supportFragmentManager.commit {
-                    replace<MainFragment>(R.id.frameContainer)
-                    setReorderingAllowed(true)
-                    addToBackStack("replacement")
-                }
-                return@OnNavigationItemSelectedListener true
-            }
-
-            R.id.itemUserFragment -> {
-                supportFragmentManager.commit {
-                    replace<UserFragment>(R.id.frameContainer)
-                    setReorderingAllowed(true)
-                    addToBackStack("replacement")
-                }
-                return@OnNavigationItemSelectedListener true
-            }
-
-            R.id.itemNewsFragment -> {
-                supportFragmentManager.commit {
-                    replace<NewsFragment>(R.id.frameContainer)
-                    setReorderingAllowed(true)
-                    addToBackStack("replacement")
-                }
-                return@OnNavigationItemSelectedListener true
-            }
-
-        }
-
-        false
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
 
-        navegation = findViewById(R.id.navMenu)
-        navegation.setOnNavigationItemSelectedListener(mOnNavMenu)
-        val email = intent.getStringExtra("email")
+        var navegation : BottomNavigationView
+
+
+        val firebaseData = intent.getSerializableExtra("firebaseData") as FirebaseData
+
         val mainFragment = MainFragment()
         val newsFragment = NewsFragment()
+        val userFragment = UserFragment()
 
-        val args = Bundle()
-        args.putString("email", email)
+        val args = bundleOf("firebaseData" to firebaseData)
+        // args.putString("email", email)
         mainFragment.arguments = args
-
-        firebaseViewModel = ViewModelProvider(this).get(FirebaseViewModel::class.java)
-        val db = FirebaseFirestore.getInstance()
-        val usersCollection = db.collection("users")
-        usersCollection.document(email.toString()).get().addOnSuccessListener { documentSnapshot ->
-            if (documentSnapshot.exists()) {
-                val nombreMascota = documentSnapshot.getString("nombre_mascota")
-                val foto_mascota = documentSnapshot.getString("foto_Mascota")
-                firebaseViewModel.firebaseData = FirebaseData(email, nombreMascota, foto_mascota)
-
-
-            } else {
-                // el correo electrónico no fue encontrado
-            }
-        }
+        newsFragment.arguments = args
+        userFragment.arguments = args
 
         //Colocar Fragments
         supportFragmentManager.commit {
@@ -95,6 +46,42 @@ class PrincipalActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
+
+         val mOnNavMenu = BottomNavigationView.OnNavigationItemSelectedListener{item ->
+            when(item.itemId){
+                R.id.itemMainFragment -> {
+                    supportFragmentManager.commit {
+                        replace<MainFragment>(R.id.frameContainer, args = args)
+                        setReorderingAllowed(true)
+                        addToBackStack("replacement")
+                    }
+                    return@OnNavigationItemSelectedListener true
+                }
+
+                R.id.itemUserFragment -> {
+                    supportFragmentManager.commit {
+                        replace<UserFragment>(R.id.frameContainer, args = args)
+                        setReorderingAllowed(true)
+                        addToBackStack("replacement")
+                    }
+                    return@OnNavigationItemSelectedListener true
+                }
+
+                R.id.itemNewsFragment -> {
+                    supportFragmentManager.commit {
+                        replace<NewsFragment>(R.id.frameContainer, args = args)
+                        setReorderingAllowed(true)
+                        addToBackStack("replacement")
+                    }
+                    return@OnNavigationItemSelectedListener true
+                }
+
+            }
+
+            false
+        }
+        navegation = findViewById(R.id.navMenu)
+        navegation.setOnNavigationItemSelectedListener(mOnNavMenu)
 
     }
 }

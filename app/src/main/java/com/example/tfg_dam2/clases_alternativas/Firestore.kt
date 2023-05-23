@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.tfg_dam2.actividades_principales.FirebaseViewModel
 import com.example.tfg_dam2.actividades_principales.PrincipalActivity
 import com.example.tfg_dam2.registro_login.LoginActivity
 import com.example.tfg_dam2.registro_login.RegisterActivity
@@ -19,7 +18,7 @@ class Firestore {
     // Variables
     private val db = FirebaseFirestore.getInstance()
     private val users = db.collection("users")
-    var firebaseData: FirebaseData? = null
+    lateinit var firebaseData: FirebaseData
 
     //Constructores
     constructor()
@@ -50,7 +49,7 @@ class Firestore {
     }
 
 
-    fun loguerarUsuario(email: String, password: String, context: Context, firebaseViewModel: FirebaseViewModel){
+    fun loguerarUsuario(email: String, password: String, context: Context){
         val documento = users.document(email)
         documento.get().addOnCompleteListener{task ->
             if (task.isSuccessful){
@@ -58,12 +57,18 @@ class Firestore {
                 if (documentComprueba != null && documentComprueba.exists()) {
                     if(password == documentComprueba.data?.get("password").toString()){
                         //Meter a FirebaseData
+                        val edadMascota = documentComprueba.getString("edad_mascota")
+                        val emailUser = documentComprueba.getString("email")
+                        val fotoMascota = documentComprueba.getString("foto_Mascota")
+                        val nombreUser = documentComprueba.getString("nombre")
                         val nombreMascota = documentComprueba.getString("nombre_mascota")
-                        val foto_mascota = documentComprueba.getString("foto_Mascota")
-                        firebaseViewModel.firebaseData = FirebaseData(email, nombreMascota, foto_mascota)
+                        val passwordUser = documentComprueba.getString("password")
+                        val pesoMascota = documentComprueba.getString("peso_mascota")
+                        val razaMascota = documentComprueba.getString("raza_mascota")
+                        firebaseData = FirebaseData(emailUser!!, nombreMascota!!, fotoMascota!!)
                         //Cambiar de actividad
                         val cambio = Intent(context, PrincipalActivity::class.java)
-                        cambio.putExtra("email", email)
+                        cambio.putExtra("firebaseData", firebaseData)
                         startActivity(context, cambio, null)
                     }else{
                         Toast.makeText(context, "La contraseña es incorrecta", Toast.LENGTH_SHORT).show()

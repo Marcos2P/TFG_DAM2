@@ -15,7 +15,6 @@ import com.bumptech.glide.Glide
 import com.example.tfg_dam2.R
 import com.example.tfg_dam2.actividades_caninas.Alimentacion
 import com.example.tfg_dam2.actividades_caninas.Entrenamiento
-import com.example.tfg_dam2.actividades_principales.FirebaseViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -29,7 +28,6 @@ class MainFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var firebaseViewModel: FirebaseViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -37,7 +35,6 @@ class MainFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        firebaseViewModel = ViewModelProvider(requireActivity()).get(FirebaseViewModel::class.java)
     }
 
     @SuppressLint("MissingInflatedId")
@@ -61,12 +58,8 @@ class MainFragment : Fragment() {
             }
         }
 
-        val sombreMascot = firebaseViewModel.firebaseData?.nombreMascota
-        val footMascot = firebaseViewModel.firebaseData?.fotoUrl
         val imageMascot = view.findViewById<ImageView>(R.id.petView)
         val sombrePero = view.findViewById<TextView>(R.id.nombrePerro)
-        sombrePero.text = sombreMascot
-        Glide.with(this).load(footMascot).into(imageMascot)
 
         val btnPetComida = view.findViewById<Button>(R.id.btnPetComida)
         btnPetComida.setOnClickListener(){
