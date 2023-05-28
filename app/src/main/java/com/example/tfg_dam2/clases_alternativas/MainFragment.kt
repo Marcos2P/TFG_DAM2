@@ -15,24 +15,22 @@ import com.bumptech.glide.Glide
 import com.example.tfg_dam2.R
 import com.example.tfg_dam2.actividades_caninas.Alimentacion
 import com.example.tfg_dam2.actividades_caninas.Entrenamiento
+import com.example.tfg_dam2.actividades_caninas.Salud
 import com.google.firebase.firestore.FirebaseFirestore
 
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-private val db = FirebaseFirestore.getInstance()
-private val users = db.collection("users")
+
 
 class MainFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var firebaseData: FirebaseData
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            firebaseData = arguments?.getSerializable("firebaseData") as FirebaseData
         }
 
     }
@@ -43,27 +41,18 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
 
-        val email = arguments?.getString("email")
-        val query = users.whereEqualTo("email", email)
-        query.get().addOnSuccessListener { queryS ->
-            if (!queryS.isEmpty) {
-                val documentSnapshot = queryS.documents[0]
-                val nombreMascota = documentSnapshot.getString("nombre_mascota")
-                val nombrePerro = view.findViewById<TextView>(R.id.nombrePerro)
-                nombrePerro.text = nombreMascota
 
-                val foto_mascota = documentSnapshot.getString("foto_Mascota")
-                val imagenMascota = view.findViewById<ImageView>(R.id.petView)
-                Glide.with(this).load(foto_mascota).into(imagenMascota)
-            }
-        }
+        val imageMascota = view.findViewById<ImageView>(R.id.petView)
+        Glide.with(this).load(firebaseData.fotoUrl).into(imageMascota)
 
-        val imageMascot = view.findViewById<ImageView>(R.id.petView)
-        val sombrePero = view.findViewById<TextView>(R.id.nombrePerro)
+        val nombrePero = view.findViewById<TextView>(R.id.nombrePerro)
+        nombrePero.text = firebaseData.nombreMascota
+
 
         val btnPetComida = view.findViewById<Button>(R.id.btnPetComida)
         btnPetComida.setOnClickListener(){
             val intent = Intent(activity, Alimentacion::class.java)
+            intent.putExtra("firebaseData", firebaseData)
             activity?.startActivity(intent)
         }
         val btnPetEntrenamiento = view.findViewById<Button>(R.id.btnPetEntrenamiento)
@@ -72,26 +61,23 @@ class MainFragment : Fragment() {
             activity?.startActivity(intent)
         }
 
+        val btnPetSalud = view.findViewById<Button>(R.id.btnPetSalud)
+        btnPetSalud.setOnClickListener(){
+            val intent = Intent(activity, Salud::class.java)
+            activity?.startActivity(intent)
+        }
+
 
         return view
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MainFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(firebaseData: FirebaseData) =
             MainFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putSerializable("firebaseData", firebaseData)
                 }
             }
     }

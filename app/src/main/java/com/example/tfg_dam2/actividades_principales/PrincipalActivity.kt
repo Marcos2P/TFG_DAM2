@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class PrincipalActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)

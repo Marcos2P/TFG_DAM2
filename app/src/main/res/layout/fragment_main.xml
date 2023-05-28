@@ -210,6 +210,7 @@
                             android:textStyle="bold" />
 
                         <Button
+                            android:id="@+id/btnPetSalud"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/colorSalud"

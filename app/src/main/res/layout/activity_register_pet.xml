@@ -66,8 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="Peso en kilogramos"
-            android:inputType="numberDecimal" />
+            android:hint="Peso en gramos"
+            android:inputType="number" />
 
 
         <EditText

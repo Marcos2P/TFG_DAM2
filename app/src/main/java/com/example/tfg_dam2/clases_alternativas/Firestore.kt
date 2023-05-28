@@ -65,7 +65,7 @@ class Firestore {
                         val passwordUser = documentComprueba.getString("password")
                         val pesoMascota = documentComprueba.getString("peso_mascota")
                         val razaMascota = documentComprueba.getString("raza_mascota")
-                        firebaseData = FirebaseData(emailUser!!, nombreMascota!!, fotoMascota!!)
+                        firebaseData = FirebaseData(edadMascota!!,emailUser!!, fotoMascota!!, nombreUser!!, nombreMascota!!,  passwordUser!!, pesoMascota!!, razaMascota!!,)
                         //Cambiar de actividad
                         val cambio = Intent(context, PrincipalActivity::class.java)
                         cambio.putExtra("firebaseData", firebaseData)
