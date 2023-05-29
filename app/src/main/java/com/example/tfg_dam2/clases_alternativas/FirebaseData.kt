@@ -3,12 +3,15 @@ package com.example.tfg_dam2.clases_alternativas
 import java.io.Serializable
 
 data class FirebaseData(
-    val edadMascota : String,
-    val email: String,
-    val fotoUrl: String,
-    val nombreUser : String,
-    val nombreMascota: String,
-    val  passwordUser : String,
-    val pesoMascota : String,
-    val razaMascota : String,
+    var edadMascota : String,
+    var email: String,
+    var fotoUrl: String,
+    var nombreUser : String,
+    var nombreMascota: String,
+    var  passwordUser : String,
+    var pesoMascota : String,
+    var razaMascota : String,
+    var train1 : Boolean,
+    var train2 : Boolean,
+    var train3 : Boolean,
 ): Serializable

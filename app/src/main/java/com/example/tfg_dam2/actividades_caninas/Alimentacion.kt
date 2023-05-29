@@ -32,7 +32,7 @@ class Alimentacion : AppCompatActivity() {
         }
 
         val pesoAlimento = findViewById<TextView>(R.id.pesoAlimento)
-        pesoAlimento.text = firebaseData.pesoMascota
+        pesoAlimento.text = firebaseData.pesoMascota+" gramos"
 
         var comidauno = findViewById<ImageView>(R.id.comidauno)
         var comidados = findViewById<ImageView>(R.id.comidados)
@@ -96,9 +96,9 @@ class Alimentacion : AppCompatActivity() {
             }
         }
 
-        var num = firebaseData.pesoMascota
 
         val pesoAlimentoKg = findViewById<TextView>(R.id.pesoAlimentokg)
+        var num = firebaseData.pesoMascota.substringBefore(".")
         pesoAlimentoKg.text = (num.toInt()*2/100).toString()
 
 

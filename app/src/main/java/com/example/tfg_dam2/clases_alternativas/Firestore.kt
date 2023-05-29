@@ -3,6 +3,7 @@ package com.example.tfg_dam2.clases_alternativas
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
@@ -37,7 +38,13 @@ class Firestore {
                         "email" to email,
                         "nombre" to nombre,
                         "password" to password)
+                    var hM2 = hashMapOf<String, Boolean>(
+                        "Train1" to false,
+                        "Train2" to false,
+                        "Train3" to false
+                        )
                     users.document(email).set(hM)
+                    users.document(email).update(hM2 as Map<String, Any>)
                     val cambio = Intent(context, RegisterPetActivity::class.java)
                     cambio.putExtra("email", email)
                     startActivity(context, cambio, null)
@@ -65,7 +72,10 @@ class Firestore {
                         val passwordUser = documentComprueba.getString("password")
                         val pesoMascota = documentComprueba.getString("peso_mascota")
                         val razaMascota = documentComprueba.getString("raza_mascota")
-                        firebaseData = FirebaseData(edadMascota!!,emailUser!!, fotoMascota!!, nombreUser!!, nombreMascota!!,  passwordUser!!, pesoMascota!!, razaMascota!!,)
+                        var train1 = documentComprueba.getBoolean("Train1")
+                        var train2 = documentComprueba.getBoolean("Train2")
+                        var train3 = documentComprueba.getBoolean("Train3")
+                        firebaseData = FirebaseData(edadMascota!!,emailUser!!, fotoMascota!!, nombreUser!!, nombreMascota!!,  passwordUser!!, pesoMascota!!, razaMascota!!, train1!!, train2!!, train3!! )
                         //Cambiar de actividad
                         val cambio = Intent(context, PrincipalActivity::class.java)
                         cambio.putExtra("firebaseData", firebaseData)
@@ -105,6 +115,55 @@ class Firestore {
                 //No es sucesful
             }
         }
+    }
+
+    fun changeEmail(emailViejo: String, emailNuevo : String){
+        val documento = users.document(emailViejo)
+
+        // Primero
+        val actualizacion = HashMap<String,Any>()
+        actualizacion["email"] = emailNuevo
+        documento.update(actualizacion)
+
+        //Segundo
+        documento.get().addOnSuccessListener { documentSnapshot ->
+            if (documentSnapshot.exists()){
+                val datos = documentSnapshot.data
+
+                val documentNew = users.document(emailNuevo)
+                documentNew.set(datos!!).addOnSuccessListener {
+                    documento.delete().addOnSuccessListener {
+
+                    }.addOnFailureListener{
+
+                    }
+                }
+            }
+        }
+    }
+
+    fun changePassword(email : String, password: String){
+        val documento = users.document(email)
+
+        val actualizacion = HashMap<String,Any>()
+        actualizacion["password"] = password
+        documento.update(actualizacion)
+    }
+
+    fun changePeso(email : String, peso : String){
+        val documento = users.document(email)
+
+        val actualizacion = HashMap<String,Any>()
+        actualizacion["peso_mascota"] = peso
+        documento.update(actualizacion)
+    }
+
+    fun changeEdad(email : String, edad : String){
+        val documento = users.document(email)
+
+        val actualizacion = HashMap<String,Any>()
+        actualizacion["edad"] = edad
+        documento.update(actualizacion)
     }
 
 }

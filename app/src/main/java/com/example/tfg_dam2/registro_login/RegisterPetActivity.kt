@@ -30,7 +30,7 @@ class RegisterPetActivity : AppCompatActivity() {
     var mStorage : StorageReference = FirebaseStorage.getInstance().getReference()
     private val GALLERY_INTENT = 1
     private lateinit var fotoMascota : ImageView
-    lateinit var urlMascota : Uri
+    var urlMascota : Uri? = null
 
     @SuppressLint("IntentReset")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +64,8 @@ class RegisterPetActivity : AppCompatActivity() {
         petContinuar.setOnClickListener {
             if (petName.text.toString().isNotEmpty() && petPeso.text.toString().isNotEmpty() && petEdad.text.toString().isNotEmpty() && petRaza.selectedItem.toString().isNotEmpty() && urlMascota!=null){
                 if (email != null) {
-                    fire.loguearMascota(email, petName.text.toString(), petPeso.text.toString().toFloat(), petEdad.text.toString().toInt(), petRaza.selectedItem.toString(),urlMascota, context)
+                    fire.loguearMascota(email, petName.text.toString(), petPeso.text.toString().toFloat(), petEdad.text.toString().toInt(), petRaza.selectedItem.toString(),
+                        urlMascota!!, context)
                 }
             }else{
                 showErrorPet("Rellene todos los campos")

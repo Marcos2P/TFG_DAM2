@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -17,10 +18,6 @@ import com.example.tfg_dam2.actividades_caninas.Alimentacion
 import com.example.tfg_dam2.actividades_caninas.Entrenamiento
 import com.example.tfg_dam2.actividades_caninas.Salud
 import com.google.firebase.firestore.FirebaseFirestore
-
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 
 
@@ -67,6 +64,19 @@ class MainFragment : Fragment() {
             activity?.startActivity(intent)
         }
 
+        var progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.max = 3
+
+
+        if (firebaseData.train1==true){
+            progressBar.progress += 1
+        }
+        if (firebaseData.train2==true){
+            progressBar.progress += 1
+        }
+        if (firebaseData.train3==true){
+            progressBar.progress += 1
+        }
 
         return view
     }
