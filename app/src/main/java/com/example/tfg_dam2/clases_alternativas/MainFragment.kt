@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.tfg_dam2.R
@@ -46,6 +47,7 @@ class MainFragment : Fragment() {
         nombrePero.text = firebaseData.nombreMascota
 
 
+
         val btnPetComida = view.findViewById<Button>(R.id.btnPetComida)
         btnPetComida.setOnClickListener(){
             val intent = Intent(activity, Alimentacion::class.java)
@@ -55,12 +57,14 @@ class MainFragment : Fragment() {
         val btnPetEntrenamiento = view.findViewById<Button>(R.id.btnPetEntrenamiento)
         btnPetEntrenamiento.setOnClickListener(){
             val intent = Intent(activity, Entrenamiento::class.java)
+            intent.putExtra("firebaseData", firebaseData)
             activity?.startActivity(intent)
         }
 
         val btnPetSalud = view.findViewById<Button>(R.id.btnPetSalud)
         btnPetSalud.setOnClickListener(){
             val intent = Intent(activity, Salud::class.java)
+            intent.putExtra("firebaseData", firebaseData)
             activity?.startActivity(intent)
         }
 
@@ -69,14 +73,15 @@ class MainFragment : Fragment() {
 
 
         if (firebaseData.train1==true){
-            progressBar.progress += 1
+            addProgress(progressBar)
         }
         if (firebaseData.train2==true){
-            progressBar.progress += 1
+            addProgress(progressBar)
         }
         if (firebaseData.train3==true){
-            progressBar.progress += 1
+            addProgress(progressBar)
         }
+
 
         return view
     }
@@ -90,5 +95,9 @@ class MainFragment : Fragment() {
                     putSerializable("firebaseData", firebaseData)
                 }
             }
+    }
+
+    private fun addProgress(progressBar: ProgressBar){
+        progressBar.progress = progressBar.progress + 1
     }
 }

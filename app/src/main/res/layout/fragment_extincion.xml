@@ -171,6 +171,7 @@
 
                 <Button
 
+                    android:id="@+id/btnConseguidoExtincion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#4CAF50"

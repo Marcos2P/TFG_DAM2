@@ -162,7 +162,15 @@ class Firestore {
         val documento = users.document(email)
 
         val actualizacion = HashMap<String,Any>()
-        actualizacion["edad"] = edad
+        actualizacion["edad_mascota"] = edad
+        documento.update(actualizacion)
+    }
+
+    fun changeEstado(email: String, flag : Boolean, number: Int){
+        val documento = users.document(email)
+
+        val actualizacion = HashMap<String,Any>()
+        actualizacion["Train"+number] = flag
         documento.update(actualizacion)
     }
 

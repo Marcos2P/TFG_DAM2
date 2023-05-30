@@ -36,10 +36,7 @@ class PrincipalActivity : AppCompatActivity() {
         val userFragment = UserFragment()
 
         val args = bundleOf("firebaseData" to firebaseData)
-        // args.putString("email", email)
-        mainFragment.arguments = args
-        newsFragment.arguments = args
-        userFragment.arguments = args
+
 
         //Colocar Fragments
         supportFragmentManager.commit {
