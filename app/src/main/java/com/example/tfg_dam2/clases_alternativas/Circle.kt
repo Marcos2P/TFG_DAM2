@@ -8,18 +8,28 @@ import android.view.View
 
 class Circle(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
-    private val paint = Paint()
+    private var radius = 100f
+    private var circleColor = Color.RED
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         val centerX = width / 2f
         val centerY = height / 2f
-        val radius = minOf(width, height) / 2f
 
-        paint.color = Color.RED
+        val paint = Paint()
+        paint.color = circleColor
         paint.style = Paint.Style.FILL
 
         canvas.drawCircle(centerX, centerY, radius, paint)
+    }
+
+    fun setCircleColor(color: String) {
+        circleColor = if (color == "red"){
+            Color.RED
+        }else{
+            Color.GREEN
+        }
+        invalidate()
     }
 }

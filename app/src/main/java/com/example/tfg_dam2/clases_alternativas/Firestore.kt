@@ -3,16 +3,17 @@ package com.example.tfg_dam2.clases_alternativas
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.provider.ContactsContract.CommonDataKinds.Email
-import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.tfg_dam2.actividades_principales.PrincipalActivity
 import com.example.tfg_dam2.registro_login.LoginActivity
-import com.example.tfg_dam2.registro_login.RegisterActivity
 import com.example.tfg_dam2.registro_login.RegisterPetActivity
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.FieldValue
+import java.util.Calendar
+import java.util.Date
+
 
 class Firestore {
 
@@ -27,6 +28,11 @@ class Firestore {
     //Funciones
 
     fun agregarUsuario(email : String, nombre : String, password : String, context: Context, ){
+        var calendar  = Calendar.getInstance()
+        var fecha = calendar.time
+        val listaHorariosVeterinario = ArrayList<String>()
+        val listaHorariosPeluqueria= ArrayList<String>()
+        val listaHorariosDeporte = ArrayList<String>()
         val documento = users.document(email)
         documento.get().addOnCompleteListener{task ->
             if (task.isSuccessful){
@@ -43,8 +49,26 @@ class Firestore {
                         "Train2" to false,
                         "Train3" to false
                         )
+                    var hm3 = hashMapOf<String, String>(
+                        "Paseo1" to "red",
+                        "Paseo2" to "red",
+                        "Paseo3" to "red"
+                    )
+                    var hm4= hashMapOf(
+                        "Fecha" to fecha
+                    )
+                    var hm5 = hashMapOf<String,
+                            kotlin.collections.ArrayList<String>>(
+                        "fechasVeterinario" to listaHorariosVeterinario,
+                        "fechasPeluqueria" to listaHorariosPeluqueria,
+                        "fechasDeporte" to listaHorariosDeporte
+                    )
                     users.document(email).set(hM)
                     users.document(email).update(hM2 as Map<String, Any>)
+                    users.document(email).update(hm3 as Map<String, String>)
+                    users.document(email).update(hm4 as Map<String, Date>)
+                    users.document(email).update(hm5 as Map<String,
+                            kotlin.collections.ArrayList<String>>)
                     val cambio = Intent(context, RegisterPetActivity::class.java)
                     cambio.putExtra("email", email)
                     startActivity(context, cambio, null)
@@ -72,10 +96,19 @@ class Firestore {
                         val passwordUser = documentComprueba.getString("password")
                         val pesoMascota = documentComprueba.getString("peso_mascota")
                         val razaMascota = documentComprueba.getString("raza_mascota")
-                        var train1 = documentComprueba.getBoolean("Train1")
-                        var train2 = documentComprueba.getBoolean("Train2")
-                        var train3 = documentComprueba.getBoolean("Train3")
-                        firebaseData = FirebaseData(edadMascota!!,emailUser!!, fotoMascota!!, nombreUser!!, nombreMascota!!,  passwordUser!!, pesoMascota!!, razaMascota!!, train1!!, train2!!, train3!! )
+                        val train1 = documentComprueba.getBoolean("Train1")
+                        val train2 = documentComprueba.getBoolean("Train2")
+                        val train3 = documentComprueba.getBoolean("Train3")
+                        val paseo1 = documentComprueba.getString("Paseo1")
+                        val paseo2 = documentComprueba.getString("Paseo2")
+                        val paseo3 = documentComprueba.getString("Paseo3")
+                        var horario = documentComprueba.getDate("Fecha")
+                        var fechaPelu = documentComprueba.get("fechasPeluqueria") as ArrayList<String>
+                        var fechaVeterinario = documentComprueba.get("fechasVeterinario") as ArrayList<String>
+                        var fechasDeporte = documentComprueba.get("fechasDeporte")as ArrayList<String>
+                        firebaseData = FirebaseData(edadMascota!!,emailUser!!, fotoMascota!!, nombreUser!!, nombreMascota!!,  passwordUser!!, pesoMascota!!, razaMascota!!, train1!!, train2!!, train3!!, paseo1!!, paseo2!!, paseo3!!,
+                            horario!!, fechaPelu, fechaVeterinario, fechasDeporte
+                        )
                         //Cambiar de actividad
                         val cambio = Intent(context, PrincipalActivity::class.java)
                         cambio.putExtra("firebaseData", firebaseData)
@@ -172,6 +205,35 @@ class Firestore {
         val actualizacion = HashMap<String,Any>()
         actualizacion["Train"+number] = flag
         documento.update(actualizacion)
+    }
+
+    fun cambiarColor(email: String, color: String, number: Int){
+        val documento = users.document(email)
+
+        val actualizacion = HashMap<String,Any>()
+        actualizacion["Paseo"+number] = color
+        documento.update(actualizacion)
+    }
+
+    fun cambiaFecha(email: String, fecha : Date){
+        val documento = users.document(email)
+
+        val actualizacion = HashMap<String,Date>()
+        actualizacion["Fecha"] = fecha
+        documento.update(actualizacion as Map<String, Any>)
+    }
+
+    fun añadirPelu(email: String, date : String){
+        val documento = users.document(email)
+        documento.update("fechasPeluqueria", FieldValue.arrayUnion(date))
+    }
+    fun añadirVeterinario(email: String, date : String){
+        val documento = users.document(email)
+        documento.update("fechasVeterinario", FieldValue.arrayUnion(date))
+    }
+    fun añadirDeporte(email: String, date : String){
+        val documento = users.document(email)
+        documento.update("fechasDeporte", FieldValue.arrayUnion(date))
     }
 
 }
