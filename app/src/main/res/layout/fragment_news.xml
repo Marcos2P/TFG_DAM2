@@ -45,6 +45,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,11 +54,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
                     android:orientation="vertical"
                     android:padding="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -115,7 +118,9 @@
                                     android:id="@+id/imageView5"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1" />
+                                    android:layout_weight="1"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/novedaduno" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -165,86 +170,57 @@
                             app:cardBackgroundColor="@color/colorBtn"
                             app:cardCornerRadius="10dp">
 
-                            <ImageView
-                                android:layout_width="200dp"
-                                android:layout_height="200dp"
-                                android:alpha="0.5"
-                                android:background="@drawable/foodpettrans" />
-
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/imageView6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:scaleType="center"
+                                    app:srcCompat="@drawable/novedaddos" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:text="Alimentación"
-                                    android:textSize="40sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_weight="0.5"
                                     android:gravity="center"
-                                    android:text="Encuentra que comida y la cantidad de la misma necesita tu mascota con la opcion de comprarla"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <Button
-                                    android:id="@+id/ccc"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:backgroundTint="@color/colorFood"
-                                    android:text="Ir al apartado de comida" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:gravity="center"
+                                        android:text="Estos son los cambios que prevé la ley sobre los perros potencialmente peligrosos"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:gravity="center"
+                                        android:text="El Congreso de los Diputados ha aprobado el proyecto de ley de bienestar animal que incluye cambios sobre los perros considerados como potencialmente peligrosos."
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/Novedad2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:backgroundTint="@color/colorFood"
+                                        android:text="Ver más" />
+                                </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/headerLayout2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/headerTextView2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="16dp"
-                            android:text="Caja desplegable" />
-
-                        <ImageView
-                            android:id="@+id/arrowImageView2"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/baseline_expand_more_24" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/contentLayout2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hola" />
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -261,7 +237,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:padding="16dp"
-                            android:text="Caja desplegable" />
+                            android:text="Mundo Fashion" />
 
                         <ImageView
                             android:id="@+id/arrowImageView3"
@@ -287,45 +263,55 @@
                             app:cardBackgroundColor="@color/colorBtn"
                             app:cardCornerRadius="10dp">
 
-                            <ImageView
-                                android:layout_width="200dp"
-                                android:layout_height="200dp"
-                                android:alpha="0.5"
-                                android:background="@drawable/foodpettrans" />
-
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/imageView7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/modauno" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:text="Alimentación"
-                                    android:textSize="40sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_weight="0.5"
                                     android:gravity="center"
-                                    android:text="Encuentra que comida y la cantidad de la misma necesita tu mascota con la opcion de comprarla"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <Button
-                                    android:id="@+id/zz3z"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:backgroundTint="@color/colorFood"
-                                    android:text="Ir al apartado de comida" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:gravity="center"
+                                        android:text="La raza de perro que está de moda entre los españoles: descubre cuál es y por qué enamora a todos"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:gravity="center"
+                                        android:text="¡Atención amantes de los perros! La raza de perro más trendy del momento en España te dejará sin palabras"
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/Novedad3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:backgroundTint="@color/colorFood"
+                                        android:text="Ver más" />
+                                </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -334,98 +320,64 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
+                            android:layout_marginBottom="30dp"
                             app:cardBackgroundColor="@color/colorBtn"
                             app:cardCornerRadius="10dp">
 
-                            <ImageView
-                                android:layout_width="200dp"
-                                android:layout_height="200dp"
-                                android:alpha="0.5"
-                                android:background="@drawable/foodpettrans" />
-
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginBottom="15dp"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
 
+                                <ImageView
+                                    android:id="@+id/imageView8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:scaleType="centerCrop"
+                                    app:srcCompat="@drawable/modauno" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:text="Alimentación"
-                                    android:textSize="40sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_weight="0.5"
                                     android:gravity="center"
-                                    android:text="Encuentra que comida y la cantidad de la misma necesita tu mascota con la opcion de comprarla"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical"
+                                    android:padding="10dp">
 
-                                <Button
-                                    android:id="@+id/ccc4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:backgroundTint="@color/colorFood"
-                                    android:text="Ir al apartado de comida" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:gravity="center"
+                                        android:text="Tommy Hilfiger lanzará en 2023 una colección para mascotas "
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:gravity="center"
+                                        android:text="Hilfiger la ha licenciado a Kanine Pets World, que la diseñará, producirá y comercializará, de momento en Estados Unidos "
+                                        android:textStyle="bold" />
+
+                                    <Button
+                                        android:id="@+id/Novedad4"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:backgroundTint="@color/colorFood"
+                                        android:text="Ver más" />
+                                </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/headerLayout5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/headerTextView5"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:padding="16dp"
-                            android:text="Caja desplegable" />
-
-                        <ImageView
-                            android:id="@+id/arrowImageView6"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/baseline_expand_more_24" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/contentLayout6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="hola" />
-
-                    </LinearLayout>
-
                 </LinearLayout>
-
-
-                </LinearLayout>
-
-
+            </LinearLayout>
         </ScrollView>
 
 

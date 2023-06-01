@@ -60,9 +60,9 @@ class Alimentacion : AppCompatActivity() {
                 contextDos = "https://www.tiendanimal.es/criadores-mini-pollo-y-arroz-en-pate-para-cachorros/CRD43972_M.html"
             }else{
                 comidauno.setImageResource(R.drawable.comidabulldogtres)
-                comidados.setImageResource(R.drawable.comidabulldogcuatro)
+                comidados.setImageResource(R.drawable.comidabulldoguno)
                 contextUno = "https://www.tiendanimal.es/affinity-advance-bulldog-frances-active-defense-pato-y-arroz-pienso-para-perros/ADV500749_M.html"
-                contextDos = "https://crazypet.es/royal-canin-perros-adultos/100271-royal-canin-bulldog-ingles-adult.html?gad=1&gclid=Cj0KCQjw98ujBhCgARIsAD7QeAjevKO1B9BvF3dQZbhAfQUiEncgas6ITQWT3M6OjQd-DKQrS3UXgsMaAofCEALw_wcB"
+                contextDos = "https://www.tiendanimal.es/royal-canin-french-bulldog-adult-pienso-para-perros/ROY159868_M.html"
             }
             "Rottweiler" -> if (edadAlimento.text=="cachorro"){
                 comidauno.setImageResource(R.drawable.comidarotuno)

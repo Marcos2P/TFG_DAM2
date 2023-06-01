@@ -1,5 +1,6 @@
 package com.example.tfg_dam2.clases_alternativas
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -26,6 +27,7 @@ class NewsFragment : Fragment() {
 
     }
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,12 +41,13 @@ class NewsFragment : Fragment() {
         val headerLayout = view.findViewById<LinearLayout>(R.id.headerLayout)
         val arrowImageView = view.findViewById<ImageView>(R.id.arrowImageView)
         val contentLayout = view.findViewById<LinearLayout>(R.id.contentLayout)
+        val secondNovedad = view.findViewById<Button>(R.id.Novedad2)
+
         headerLayout.setOnClickListener {
             if (headerLayout.contentDescription=="Expand") {
                 arrowImageView.setImageResource(R.drawable.baseline_expand_less_24)
                 contentLayout.visibility = View.VISIBLE
                 headerLayout.contentDescription="NotExpand"
-                Toast.makeText(context, firebaseData.email, Toast.LENGTH_SHORT).show()
             } else {
                 arrowImageView.setImageResource(R.drawable.baseline_expand_more_24)
                 headerLayout.contentDescription="Expand"
@@ -52,18 +55,52 @@ class NewsFragment : Fragment() {
             }
         }
         firstNovedad.setOnClickListener {
-            val url = "https://www.google.com"
+            val url = "https://metropoliabierta.elespanol.com/el-pulso-de-la-ciudad/en-la-calle/promueven-adopcion-perros-potencialmente-peligrosos_20205_102.html#:~:text=Las%20razas%20que%20pertenecen%20a,terrier%2C%20tosa%20inu%20o%20japon%C3%A9s."
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+        secondNovedad.setOnClickListener {
+            val url = "https://www.ondacero.es/noticias/sociedad/estos-son-cambios-que-preve-ley-perros-potencialmente-peligrosos_2023021063e60aad54dfc0000123d02a.html"
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
 
 
-        //Segunda Seccion
-        val headerLayout2 = view.findViewById<LinearLayout>(R.id.headerLayout2)
-        val arrowImageView2 = view.findViewById<ImageView>(R.id.arrowImageView2)
-        val contentLayout2 = view.findViewById<LinearLayout>(R.id.contentLayout2)
 
+        //Segunda Seccion
+        val headerLayout2 = view.findViewById<LinearLayout>(R.id.headerLayout3)
+        val arrowImageView2 = view.findViewById<ImageView>(R.id.arrowImageView3)
+        val contentLayout2 = view.findViewById<LinearLayout>(R.id.contentLayout3)
+        val novedad3 = view.findViewById<Button>(R.id.Novedad3)
+        val novedad4 = view.findViewById<Button>(R.id.Novedad4)
+
+        headerLayout2.setOnClickListener {
+            if (headerLayout2.contentDescription=="Expand") {
+                arrowImageView2.setImageResource(R.drawable.baseline_expand_less_24)
+                contentLayout2.visibility = View.VISIBLE
+                headerLayout2.contentDescription="NotExpand"
+            } else {
+                arrowImageView2.setImageResource(R.drawable.baseline_expand_more_24)
+                headerLayout2.contentDescription="Expand"
+                contentLayout2.visibility = View.GONE
+            }
+        }
+
+        novedad3.setOnClickListener {
+            val url = "https://www.informacion.es/vida-y-estilo/mascotas/raza-perro-moda-espanoles-dv-85277433.html"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+
+        novedad4.setOnClickListener {
+            val url = "https://pinkermoda.com/hilfiger-coleccion-mascotas/"
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
 
 
         return view
