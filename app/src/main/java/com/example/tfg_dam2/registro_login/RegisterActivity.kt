@@ -32,7 +32,8 @@ class RegisterActivity : AppCompatActivity() {
 
 
         btnRegister.setOnClickListener {
-            if (email.text.toString().isNotEmpty() && nombre.text.toString().isNotEmpty() && password.text.toString().isNotEmpty() && password2.text.toString().isNotEmpty()){
+            if (email.text.toString().isNotEmpty() && nombre.text.toString().isNotEmpty()
+                && password.text.toString().isNotEmpty() && password2.text.toString().isNotEmpty()){
                 if (comprobarEmail(email) && comprobarPassword(password) && comprobarPasswordIguales(password, password2)){
                     fire.agregarUsuario(email.text.toString(), nombre.text.toString(), password.text.toString(), context)
                 }

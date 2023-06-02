@@ -114,13 +114,10 @@ class UserFragment : Fragment() {
                 Toast.makeText(context, "Introduce email valido", Toast.LENGTH_SHORT).show()
             }
         }
-
         builder.setNegativeButton("Cancelar"){dialogInterface, _ ->
             dialogInterface.dismiss()
         }
-
         builder.create().show()
-
     }
 
     private fun changePassword(userPassword : TextView){

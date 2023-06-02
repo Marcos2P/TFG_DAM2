@@ -106,7 +106,9 @@ class Firestore {
                         var fechaPelu = documentComprueba.get("fechasPeluqueria") as ArrayList<String>
                         var fechaVeterinario = documentComprueba.get("fechasVeterinario") as ArrayList<String>
                         var fechasDeporte = documentComprueba.get("fechasDeporte")as ArrayList<String>
-                        firebaseData = FirebaseData(edadMascota!!,emailUser!!, fotoMascota!!, nombreUser!!, nombreMascota!!,  passwordUser!!, pesoMascota!!, razaMascota!!, train1!!, train2!!, train3!!, paseo1!!, paseo2!!, paseo3!!,
+                        firebaseData = FirebaseData(edadMascota!!,emailUser!!, fotoMascota!!, nombreUser!!,
+                            nombreMascota!!,  passwordUser!!, pesoMascota!!, razaMascota!!,
+                            train1!!, train2!!, train3!!, paseo1!!, paseo2!!, paseo3!!,
                             horario!!, fechaPelu, fechaVeterinario, fechasDeporte
                         )
                         //Cambiar de actividad

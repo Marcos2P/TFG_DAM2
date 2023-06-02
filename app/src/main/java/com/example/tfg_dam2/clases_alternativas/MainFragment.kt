@@ -68,10 +68,10 @@ class MainFragment : Fragment() {
             activity?.startActivity(intent)
         }
 
+
+
         var progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
         progressBar.max = 3
-
-
         if (firebaseData.train1==true){
             addProgress(progressBar)
         }

@@ -53,7 +53,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun showError(cadena : String){
-        var snackbar : Snackbar = Snackbar.make(findViewById(R.id.Login), cadena, Snackbar.LENGTH_LONG)
+        var snackbar : Snackbar =
+            Snackbar.make(findViewById(R.id.Login), cadena, Snackbar.LENGTH_LONG)
         snackbar.show()
     }
 
